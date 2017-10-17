@@ -1,0 +1,10 @@
+
+<h1>{{person.id}}</h1>
+
+
+<ul>
+
+    {% for i in person.set.all %}
+        <li>{{ person.person_firstname }} -   {{person.lastname}}</li>
+    {% endfor %}
+</ul>

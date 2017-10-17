@@ -1,0 +1,9 @@
+{% if output %}
+    <ul>
+        {% for i in output %}
+        <li><a href="/blog/{{ i.id }}/">{{ i.person_firstname }}</a> </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h2>page not found</h2>
+{% endif %}
