@@ -1,10 +1,11 @@
 
-<h1>{{person.id}}</h1>
+
+<h1>User Details</h1>
+<h3>User Id - {{ opdetails.id }} </h3>
+ FirstName  - {{opdetails.person_firstname}} <br>
+ Last Name - {{ opdetails.person_lastname}}<br>
+ Age - {{ opdetails.person_age}}<br>
+ City - {{ opdetails.person_city}}
 
 
-<ul>
 
-    {% for i in person.set.all %}
-        <li>{{ person.person_firstname }} -   {{person.lastname}}</li>
-    {% endfor %}
-</ul>

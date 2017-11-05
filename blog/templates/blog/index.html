@@ -1,7 +1,8 @@
 {% if output %}
     <ul>
         {% for i in output %}
-        <li><a href="/blog/{{ i.id }}/">{{ i.person_firstname }}</a> </li>
+
+        <li><a href="{%url 'blog:detail' i.id %}">{{ i.person_firstname }} &nbsp; {{ i.person_lastname }} </a> </li>
         {% endfor %}
     </ul>
 {% else %}

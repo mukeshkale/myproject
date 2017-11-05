@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 
@@ -27,5 +27,9 @@ def index(request):
 #def index(request):
 #    return HttpResponse("Hello, world. You're at the polls index.")
 
+#def detail(request, person_id):
+#    return HttpResponse("You're looking at person %s." % person_id)
+
 def detail(request, person_id):
-    return HttpResponse("You're looking at person %s." % person_id)
+    opdetails = get_object_or_404(Person, pk=person_id)
+    return render(request, 'blog/details.html', {'opdetails': opdetails })
