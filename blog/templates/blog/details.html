@@ -1,11 +1,14 @@
 
-
+{% extends 'blog/base.html' %}
+{% block content %}
 <h1>User Details</h1>
 <h3>User Id - {{ opdetails.id }} </h3>
+<img src="{{opdetails.person_avtar}}" alt="Mountain View"> <br>
  FirstName  - {{opdetails.person_firstname}} <br>
  Last Name - {{ opdetails.person_lastname}}<br>
  Age - {{ opdetails.person_age}}<br>
  City - {{ opdetails.person_city}}
 
+{% endblock %}
 
 
