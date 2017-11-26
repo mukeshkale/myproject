@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.contrib.auth.decorators import login_required
+
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
@@ -10,6 +12,7 @@ from django.template import loader
 from .models import Person
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
+
 
 #def index(request):
 #    output = Person.objects.all()
@@ -29,23 +32,25 @@ from django.shortcuts import render
 #def index(request):
 #    return HttpResponse("Hello, world. You're at the polls index.")
 
+
+
 def base():
     base = loader.get_template(blog/base.html)
     return HttpResponse(base)
 
 #def detail(request, person_id):
 #    return HttpResponse("You're looking at person %s." % person_id)
-
+@login_required
 def detail(request, person_id):
     opdetails = get_object_or_404(Person, pk=person_id)
     return render(request, 'blog/details.html', {'opdetails': opdetails })
 
 
 
-
+@login_required
 def index(request):
     p_list = Person.objects.all()
-    paginator = Paginator(p_list, 3)
+    paginator = Paginator(p_list,3)
     page = request.GET.get('page')
     try:
         d_list = paginator.page(page)
