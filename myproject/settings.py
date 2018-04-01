@@ -25,8 +25,67 @@ SECRET_KEY = '1fu+5(-4&idgzfcn3be$qb0_6cji#p-90%8(f)3xa^f@=6a5=v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+###################################added from example app
+SITE_ID = 1
+
+LOCALE_PATHS = ( os.path.join(BASE_DIR, 'locale'), )
+
+
+MEDIA_ROOT = ''
+
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash.
+# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+MEDIA_URL = ''
+
+# Absolute path to the directory static files should be collected to.
+# Don't put anything in this directory yourself; store your static files
+# in apps' "static/" subdirectories and in STATICFILES_DIRS.
+# Example: "/home/media/media.lawrence.com/static/"
+STATIC_ROOT = ''
+
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
+AUTHENTICATION_BACKENDS = (
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+#ROOT_URLCONF = 'example.urls'
+
+
+#AUTH_PASSWORD_VALIDATORS = [
+#    {
+#        'NAME':
+#        'django.contrib.auth.password_validation.MinimumLengthValidator',
+#        'OPTIONS': {
+#            'min_length': 9,
+#        }
+#    }
+#]
+
+
+try:
+    from local_settings import *  # noqa
+except ImportError:
+    pass
+
+ADMINS = (
+    # ('Your Name', 'your_email@example.com'),
+)
+
+MANAGERS = ADMINS
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+######################################
 
 # Application definition
 
@@ -37,6 +96,32 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'blog',
+    'allauth',
+#    'example',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.dropbox',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.evernote',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.linkedin',
+    'allauth.socialaccount.providers.openid',
+    'allauth.socialaccount.providers.persona',
+    'allauth.socialaccount.providers.reddit',
+    'allauth.socialaccount.providers.shopify',
+    'allauth.socialaccount.providers.slack',
+    'allauth.socialaccount.providers.soundcloud',
+    'allauth.socialaccount.providers.stackexchange',
+    'allauth.socialaccount.providers.twitch',
+    'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.vimeo',
+    'allauth.socialaccount.providers.weibo',
+    'allauth.socialaccount.providers.xing',
+
+
 ]
 
 MIDDLEWARE = [
@@ -54,7 +139,7 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'myproject/templates', 'plain', 'example')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -67,6 +152,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
