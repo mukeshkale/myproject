@@ -36,6 +36,8 @@ urlpatterns = [
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic.base import TemplateView
+from django.conf import settings
+import blog.views
 admin.autodiscover()
 
 STATIC_ROOT = 'static/'
@@ -49,6 +51,7 @@ urlpatterns = [
     url(r'^accounts/profile/$', TemplateView.as_view(template_name='profile.html')),
     url(r'^blog/', include('blog.urls')),
     url(r'^admin/', include(admin.site.urls)),
+#    url(r'^static/(?P.*)$', include(blog.views.staticFileLoader.displayStaticFile)),
+#    url(r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_URL}),
 ]
-
 
