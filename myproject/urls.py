@@ -38,6 +38,8 @@ from django.contrib import admin
 from django.views.generic.base import TemplateView
 admin.autodiscover()
 
+STATIC_ROOT = 'static/'
+STATIC_URL = '/static/'
 
 
 
