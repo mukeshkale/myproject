@@ -89,6 +89,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Application definition
 
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -97,7 +99,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.admindocs',
+    'django.contrib.sitemaps',
+    'django_comments',
+    'django_xmlrpc',
+    'mptt',
+    'tagging',
     'blog',
+    'demo',
+    'zinnia',
     'allauth',
 #    'example',
     'allauth.account',
@@ -148,6 +158,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',
+                'zinnia.context_processors.version',
+
+                
             ],
         },
     },
