@@ -1,7 +1,6 @@
 certifi==2018.1.18
 chardet==3.0.4
 defusedxml==0.5.0
-Django==1.11.11
 django-allauth==0.35.0
 idna==2.6
 oauthlib==2.0.7
@@ -10,3 +9,13 @@ pytz==2018.3
 requests==2.18.4
 requests-oauthlib==0.8.0
 urllib3==1.22
+beautifulsoup4==4.6.0
+django==2.0.3
+django-contrib-comments==1.8.0
+django-mptt==0.9.0
+django-tagging==0.4.6
+django-xmlrpc==0.1.8
+mots-vides==2015.5.11
+pillow==5.0.0
+pyparsing==2.2.0
+regex==2018.2.21

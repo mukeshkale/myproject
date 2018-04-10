@@ -53,6 +53,8 @@ urlpatterns = [
     url(r'^mm/', include('blog.urls')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^admin/tools/', include('admin_tools.urls')),
+
 #    url(r'^admin/', include(admin.site.urls)),
 #    url(r'^static/(?P.*)$', include(blog.views.staticFileLoader.displayStaticFile)),
 #    url(r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_URL}),

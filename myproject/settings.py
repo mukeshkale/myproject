@@ -72,10 +72,10 @@ AUTHENTICATION_BACKENDS = (
 #]
 
 
-try:
-    from local_settings import *  # noqa
-except ImportError:
-    pass
+#try:
+#    from local_settings import *  # noqa
+#except ImportError:
+#    pass
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -108,8 +108,12 @@ INSTALLED_APPS = [
     'blog',
     'demo',
     'zinnia',
+    'admin_tools',
+    'admin_tools.theming',
+    'admin_tools.menu',
+    'admin_tools.dashboard',
+    'admin_tools_zinnia',  
     'allauth',
-#    'example',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.dropbox',
@@ -149,9 +153,8 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'myproject/templates', 'plain', 'example')]
-        ,
-        'APP_DIRS': True,
+        'DIRS': [os.path.join(BASE_DIR, 'myproject/templates', 'plain', 'example')] ,
+#        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -159,9 +162,11 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.i18n',
-                'zinnia.context_processors.version',
-
-                
+            ],
+            'loaders':[
+		'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+                'admin_tools.template_loaders.Loader',
             ],
         },
     },
@@ -202,6 +207,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+#TEMPLATE_LOADERS = (
+#    "admin_tools.template_loaders.Loader",
+#)
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 

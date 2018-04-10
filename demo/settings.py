@@ -99,4 +99,5 @@ INSTALLED_APPS = (
     'mptt',
     'tagging',
     'zinnia'
+    'admin_tools.dashboard'
 )

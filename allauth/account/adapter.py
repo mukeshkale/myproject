@@ -496,3 +496,5 @@ class DefaultAccountAdapter(object):
 
 def get_adapter(request=None):
     return import_attribute(app_settings.ADAPTER)(request)
+
+

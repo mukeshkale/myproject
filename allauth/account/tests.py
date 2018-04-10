@@ -1122,3 +1122,9 @@ class UtilsTests(TestCase):
         self.assertEqual(user_username(user), 'CamelCase')
         # TODO: Actually test something
         filter_users_by_username('camelcase', 'foobar')
+
+def add_to_default_group(sender, **kwargs):
+    user = kwargs["instance"]
+    if kwargs["created"]:
+        group = Group.objects.get(name='groupname')
+        user.groups.add(group)
