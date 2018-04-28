@@ -33,6 +33,7 @@ urlpatterns = [
 ]
 
 """
+from django.contrib.auth.decorators import login_required
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic.base import TemplateView
@@ -40,22 +41,22 @@ from django.conf import settings
 import blog.views
 admin.autodiscover()
 
-STATIC_ROOT = 'static/'
-STATIC_URL = '/static/'
+#STATIC_ROOT = 'static/'
+#STATIC_URL = '/static/'
 
 
 
 urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^blog/', include('demo.urls')),
+    url(r'^', include('demo.urls')),
+#    url(r'^', login_required(include('demo.urls'))),
 #    url(r'^$', TemplateView.as_view(template_name='login.html')),
     url(r'^accounts/profile/$', TemplateView.as_view(template_name='profile.html')),
     url(r'^mm/', include('blog.urls')),
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    url(r'^admin/', admin.site.urls),
+#    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+#    url(r'^admin/', admin.site.urls),
     url(r'^admin/tools/', include('admin_tools.urls')),
-
-#    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
 #    url(r'^static/(?P.*)$', include(blog.views.staticFileLoader.displayStaticFile)),
 #    url(r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_URL}),
 ]

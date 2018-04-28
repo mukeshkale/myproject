@@ -1,8 +1,19 @@
 from django.conf import settings
 
 
-SOCIALACCOUNT_ENABLED = 'allauth.socialaccount' in settings.INSTALLED_APPS
+#SOCIALACCOUNT_ENABLED = 'allauth.socialaccount' in settings.INSTALLED_APPS
+SOCIALACCOUNT_ENABLED = False
 
-LOGIN_REDIRECT_URL = getattr(settings, 'LOGIN_REDIRECT_URL', '/')
+#LOGIN_REDIRECT_URL = getattr(settings, 'LOGIN_REDIRECT_URL', '/mm')
 
-USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
+USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.username')
+#USER_MODEL = getattr(settings, 'ACCOUNT_AUTHENTICATION_METHOD', "email")
+#USER_MODEL = getattr(settings, 'ACCOUNT_EMAIL_REQUIRED', True )
+#USER_MODEL = getattr(settings, 'ACCOUNT_USER_MODEL_USERNAME_FIELD', 'none' )
+
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False

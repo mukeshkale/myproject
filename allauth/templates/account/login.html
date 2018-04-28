@@ -1,7 +1,7 @@
-{% extends "account/base.html" %}
+{% extends "blog/base.html" %}
 
 {% load i18n %}
-{% load account socialaccount %}
+{% load account %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
@@ -9,7 +9,6 @@
 
 <h1>{% trans "Sign In" %}</h1>
 
-{% get_providers as socialaccount_providers %}
 
 {% if socialaccount_providers %}
 <p>{% blocktrans with site.name as site_name %}Please sign in with one
@@ -26,7 +25,6 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 </div>
 
-{% include "socialaccount/snippets/login_extra.html" %}
 
 {% else %}
 <p>{% blocktrans %}If you have not created an account yet, then please

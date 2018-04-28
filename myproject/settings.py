@@ -33,7 +33,7 @@ SITE_ID = 1
 LOCALE_PATHS = ( os.path.join(BASE_DIR, 'locale'), )
 
 
-MEDIA_ROOT = ''
+MEDIA_ROOT = 'media'
 
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -55,6 +55,7 @@ STATICFILES_FINDERS = (
 )
 
 AUTHENTICATION_BACKENDS = (
+#    'django.contrib.auth.backends.ModelBackend',
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
@@ -115,25 +116,25 @@ INSTALLED_APPS = [
     'admin_tools_zinnia',  
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.dropbox',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.evernote',
-    'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.linkedin',
-    'allauth.socialaccount.providers.openid',
-    'allauth.socialaccount.providers.persona',
-    'allauth.socialaccount.providers.reddit',
-    'allauth.socialaccount.providers.shopify',
-    'allauth.socialaccount.providers.slack',
-    'allauth.socialaccount.providers.soundcloud',
-    'allauth.socialaccount.providers.stackexchange',
-    'allauth.socialaccount.providers.twitch',
-    'allauth.socialaccount.providers.twitter',
-    'allauth.socialaccount.providers.vimeo',
-    'allauth.socialaccount.providers.weibo',
-    'allauth.socialaccount.providers.xing',
+#    'allauth.socialaccount',
+#    'allauth.socialaccount.providers.dropbox',
+#    'allauth.socialaccount.providers.facebook',
+#    'allauth.socialaccount.providers.evernote',
+#    'allauth.socialaccount.providers.google',
+#    'allauth.socialaccount.providers.github',
+#    'allauth.socialaccount.providers.linkedin',
+#    'allauth.socialaccount.providers.openid',
+#    'allauth.socialaccount.providers.persona',
+#    'allauth.socialaccount.providers.reddit',
+#    'allauth.socialaccount.providers.shopify',
+#    'allauth.socialaccount.providers.slack',
+#    'allauth.socialaccount.providers.soundcloud',
+#    'allauth.socialaccount.providers.stackexchange',
+#    'allauth.socialaccount.providers.twitch',
+#    'allauth.socialaccount.providers.twitter',
+#    'allauth.socialaccount.providers.vimeo',
+#    'allauth.socialaccount.providers.weibo',
+#    'allauth.socialaccount.providers.xing',
 
 
 ]
@@ -228,6 +229,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-	os.path.join(BASE_DIR, "static"),
-)
+#STATICFILES_DIRS = (
+#	os.path.join(BASE_DIR, "static"),
+#)
+
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, "static"),
+#]
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_USERNAME_REQUIRED = False
+
